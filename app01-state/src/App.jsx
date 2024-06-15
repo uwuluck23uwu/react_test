@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [number, setNumber] = useState(0)
+  const incremect = (n)=>{
+    setNumber(number+n)
+    console.log(number)
+  }
+  const decrement = (n)=>{
+    setNumber(number-n)
+    console.log(number)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      number : {number}
+      <br/>
+      <button onClick={()=>decrement(10)} className='btn btn-dark'>Sub</button>
+      <button onClick={()=>incremect(10)} className='btn btn-dark'>Add</button>
+      <button onClick={()=>setNumber(0)} className='btn btn-dark'>Reset</button>
+    </div>
   )
 }
-
-export default App
